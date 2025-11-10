@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  Homework-03:
+    image: vanemm/homework03:latest
+    build: .
+    container_name: homework03container
+    ports: 
+      - "80:3000"
+    environment: 
+    - PORT=3000
+    volumes:
+      - ./:/app
+    command: ["node", "app.js"]
