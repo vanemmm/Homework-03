@@ -10,4 +10,4 @@ services:
     - PORT=3000
     volumes:
       - ./:/app
-    command: ["node", "app.js"]
+    command: ["node", "index.js"]
