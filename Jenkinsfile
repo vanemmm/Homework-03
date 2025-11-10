@@ -52,23 +52,6 @@ pipeline {
         }
 
 
-        stage('DEPLOYMENT') {    
-            agent {
-                label 'agent001'
-            }
-            steps {
-                echo 'Starting deployment using docker-compose...'
-                script {
-                    dir("${WORKSPACE}") {
-                        sh '''
-                            docker-compose down
-                            docker-compose up -d
-                            docker ps
-                        '''
-                    }
-                }
-                echo 'Deployment completed successfully!'
-            }
-        }
+
     }  
 } 
