@@ -28,7 +28,7 @@ pipeline {
 
         stage('Snyk Scan') {
             steps {
-                withCredentials([string(credentialsId: 'snyk-token-string', variable: 'SNYK_TOKEN')]) {
+                withCredentials([string(credentialsId: 'snyk-token', variable: 'SNYK_TOKEN')]) {
                     sh 'npm install -g snyk'          // Install Snyk CLI
                     sh 'snyk auth $SNYK_TOKEN'        // Authenticate
                     sh 'snyk test --all-projects'     // Run scan
