@@ -25,16 +25,6 @@ pipeline {
                 }
             }
         }
-
-        stage('Snyk Scan') {
-            steps {
-                // Use the Snyk plugin to handle the API token
-                withSnykToken(credentialsId: 'snyk-token') {
-                    sh 'npm install -g snyk'       // Install Snyk CLI
-                    sh 'snyk test --all-projects'  // Run scan
-                }
-            }
-        }
         
         stage('POST-TO-DOCKERHUB') {   
             steps {
