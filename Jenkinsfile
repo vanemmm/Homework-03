@@ -16,9 +16,6 @@ pipeline {
         }
 
       stage('BUILD-AND-TAG') {
-            agent {
-                label 'agent001'
-            }
             steps {
                 script {
                     // Build Docker image using Jenkins Docker Pipeline API
