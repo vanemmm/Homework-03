@@ -28,8 +28,11 @@ pipeline {
 
         stage('Snyk Scan') {
             steps {
-                // Use the Jenkins Snyk plugin instead of CLI
-                snykSecurity additionalArguments: '--all-projects'
+                withCredentials([string(credentialsId: 'snyk-token', variable: 'SNYK_TOKEN')]) {
+                    sh 'npm install -g snyk' // Install Snyk CLI
+                    sh 'snyk auth $SNYK_TOKEN' // Authenticate
+                    sh 'snyk test --all-projects' // Run scan
+                }
             }
         }
         
