@@ -27,10 +27,7 @@ pipeline {
         }
 
 
-        stage('POST-TO-DOCKERHUB') {    
-            agent {
-                label 'agent001'
-            }
+        stage('POST-TO-DOCKERHUB') {   
             steps {
                 script {
                     echo "Pushing image ${IMAGE_NAME}:latest to Docker Hub..."
