@@ -26,7 +26,16 @@ pipeline {
             }
         }
 
-
+        stage('Snyk Scan') {
+            steps {
+                script {
+                    echo "Running Snyk scan..."
+                    sh "snyk test --all-projects"
+                    // Optional: sh "snyk monitor --all-projects" to send results to Snyk dashboard
+                }
+            }
+        }
+        
         stage('POST-TO-DOCKERHUB') {   
             steps {
                 script {
