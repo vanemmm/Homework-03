@@ -13,7 +13,7 @@ app.get("/", function(req, res){
 // use our puclic/chat.js file as listener
 app.use(express.static(__dirname + '/public'));
 // Set port
-var midPort = app.listen(port, function () {
+var midPort = app.listen(port, '0.0.0.0', function () {
     console.log('Node.js listening on port ' + port);
 })
 
